@@ -1,0 +1,14 @@
+<div class="demo_title">
+  <h1> <%= "Tools available (#{@products.count})" %> </h1>
+</div>
+<div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 mt-5">
+  <% @products.each do |product| %>
+    <div class="tpn_card">
+      <img src="https://img.freepik.com/free-photo/adorable-baby-anime-dragon-illustration_23-2151117668.jpg?t=st=1710619863~exp=1710623463~hmac=879c41cd460efdada3c5c185b7e7615c343a50a498f02b18050947f6b032ca8f&w=1800" class="w-100 mb-4" />
+      <h5> <%= product.name %> </h5>
+      <p> <%= product.description %> </p>
+      <p> <%= product.price %> </p>
+      <%= link_to "Explore", "#", class: "btn tpn_btn" %>
+    </div>
+  <% end %>
+</div>
