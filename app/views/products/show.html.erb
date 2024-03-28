@@ -1,0 +1,37 @@
+<div class="container">
+  <h1 class="my-4"><%= @product.name %></h1>
+
+  <div class="row">
+    <div class="col-md-6">
+      <!-- You can add product image here -->
+      <img src="" alt="Product image" class="img-fluid mb-3">
+    </div>
+
+    <div class="col-md-6">
+      <p><strong>Description:</strong> <%= @product.description %></p>
+      <p><strong>Price:</strong> $<%= @product.price %></p>
+      <p><strong>Availability:</strong> <%= @product.availability ? 'In Stock' : 'Out of Stock' %></p>
+
+      <!-- You can add buttons for editing or deleting the product here -->
+      <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %>
+      <%= link_to 'Delete', product_path(@product), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+    </div>
+    <%= simple_form_for [@product, @booking] do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-group">
+        <%= f.label :starting_date, class: 'form-label' %>
+        <%= f.datetime_select :starting_date, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :ending_date, class: 'form-label' %>
+        <%= f.datetime_select :ending_date, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit 'Create Booking', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

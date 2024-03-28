@@ -4,11 +4,11 @@
 <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 mt-5">
   <% @products.each do |product| %>
     <div class="tpn_card">
-      <img src="https://img.freepik.com/free-photo/adorable-baby-anime-dragon-illustration_23-2151117668.jpg?t=st=1710619863~exp=1710623463~hmac=879c41cd460efdada3c5c185b7e7615c343a50a498f02b18050947f6b032ca8f&w=1800" class="w-100 mb-4" />
+      <img src="https://images.unsplash.com/photo-1586458995526-09ce6839babe?q=80&w=2946&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="w-100 mb-4" />
       <h5> <%= product.name %> </h5>
       <p> <%= product.description %> </p>
       <p> <%= product.price %> </p>
-      <%= link_to "Explore", "#", class: "btn tpn_btn" %>
+      <%= link_to "Explore", product_path(product), class: "btn tpn_btn" %>
     </div>
   <% end %>
 </div>

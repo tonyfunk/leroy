@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @products = Product.all
   end
 
   def show
     @product = Product.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -30,7 +33,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
+    @product.delete
     redirect_to products_path
   end
 
